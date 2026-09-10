@@ -1,21 +1,14 @@
 OK so I don’t know what to talk about in the report so here’s just my thoughts on the tasks we had to do.
+
 Task 1
-This was very intuitive and easy to write because there’s a lot of similarities to Java and I already had an idea of a pointer.
-
+This was very intuitive and easy to write because there are a lot of similarities to Java and I already had an idea of what pointer was. Basically the code just assigns a variable's memory address to a pointer and accesses the value directly through it.
 Task 2
-The hardest part was to figure out how to write an array, and how to write the output so it doesn’t seem like an AI generated print text :)
-I learnt that we can change the values of the variables solely using the pointers, this was something I never did before.
-
+The hardest part here was figuring out how to write an array in C, and then the text of the output so it didn't sound like an AI generated :). I learned that we can change the values of variables solely using pointers which is something I had never done before. The code walks through the array and uses a pointer to directly overwrite the numbers in memory.
 Task 3
-This took me some time to figure out and then optimize the function, also I didn’t know that function’s location mattered cause that’s not how Java works))).
-This was fun to do and unique for me, the primitive type worked like an object would in Java so I kind of had fun time playing with this.
-
+This took me some time to figure out and then optimize. I also didn't know that a function’s location in the file mattered, because that’s definitely not how Java works! This was a fun and unique challenge for me, as the primitive type worked almost like an object would in Java. To make it work the code passes the variable's memory address into the function so it can modify the original data directly instead of just editing a temporary copy.
 Task 4
-Double pointer was painful I have to admit, I had hard time understanding the meaning behind it and the way it worked so I could actually start writing the code but as soon as I thought as a computer would, it becomes exponentially easier.
-And the naming of the variables and the pointers is a tough thing for me, so sorry for the incomprehensible naming.
-
+Double pointers were painful, I have to admit. I had a hard time understanding the meaning behind them and the way they worked before I could actually start writing. But as soon as I forced myself to think like a computer would, it became exponentially easier. The code basically sets up a pointer that points to the address of another pointer, which lets me modify the original reference dynamically. Also naming variables and pointers is a tough thing for me, so sorry for any incomprehensible naming in my source code.
 Task 5
-This is where I really learnt most of the knowledge from this homework, I never worked with an array of chars and printing of it and also have never seen how a while statement and the pointers work with it.
+This is where I really gained the most knowledge from this homework. I had never worked with an array of chars or seen how a while statement and pointers work together in C. The code essentially uses a while looop to step a pointer through a char array moving one letter at a time until it hits the null terminator at the end.
 
-I honestly don’t know what to write with this, they were easy enough to be finished within one hour, most of the time I spent actually reading and not writing a code, so I learnt quite much of the basics, if there’s something I needed to write but didn’t please let me know in the feedback so I don’t ruin my further reports.
 
