@@ -1,0 +1,12 @@
+This is a txt file used for the assignment number 4.
+In this file I am writing some weird staff just to meet some word count
+so when my program looks for something in here it finds some staff to look through.
+
+Here's some another meaningless text for the program to waste my computers
+memory and the CPU power to fo through and actually do nothing but read it 
+and consequently teach me the staff I need to learn.
+
+THe main method of the classes are the methods that actually matter both in
+c prigramming language and mainly in java as a main programming langauge.
+
+And that was the main place I was planning to use the word main for my program to find it.

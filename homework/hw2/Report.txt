@@ -1,0 +1,22 @@
+Assignment 0
+
+This assignment was very straightforward I’ve used the initial code to play with it but eventually changed it using the things we’ve learnt during the classes.
+It basically takes and stores all the process ids to make the tracking easier. Each time we call a fork one new branch is created alongside the already existing parent branch. That is each fork results in the following layout, a parent is existing, a child is created, then the parent and the child go to the next fork statement, the process repeats itself ultimately resulting in 8 processes. I’ve also used the while(wait(NULL) > 0) so that the processes don’t end before their parents do. 
+
+Assignment 1
+
+Assignment one is particularly interesting because I wrote the program without using the wait(NULL) which resulted in the following output
+edgark@ubuntu-aua-2026:~/workshop/homework/hw2$ task1  task1.c
+Which is obviously incorrect but the parent process was finished before the child executed the program. How it works is the following, basically I used the technique learnt during the class and generated one child only which then changed the whole code with the code of ls. That is why it shouldn’t reach the final printf() statement as I mentioned in the commented section. How exec works is it wipes out the whole memory of the process and gets the compiled binary file or the location of it, in this case it was ”/bin/ls”.
+
+Assignment 2
+
+In Assignment two I’ve used the ideas discussed during the classes to make the two children possible and then simply used execl function in ther. The only unique thing I did and learnt here was the waitpid which helped to execute the processes in the order I want.
+
+Assignment 3
+
+Again quite similar to whatever we’ve done from assignments 1 and 2. Just in this case the execl takes an argument that prints. Again we keep the printf in place to check if everything worked because if the child process prints the printf in the if block then the program failed.
+
+Assignment 4
+
+This code follows the logic of the previous ones but with some more arguments to the execl call, here we give the word we’re trying to find, the location/name of the file we’re going to look through and at the end give the null thingy to make sure the program knows that we’re done with the arguments. That’s it.
