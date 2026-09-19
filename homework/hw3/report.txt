@@ -1,0 +1,40 @@
+Report for Homework 3 of Operating Systems
+Edgar Kirakosyan
+
+
+Assignment 1
+The program uses the usual technique of creating a child process and uses getpid in the if block to get the pid of the child then prints it using the regular printf function. Then uses exit(0) to quickly exit the program with the exit status 0 indicating smooth finish to the code. Then in the else block the parent staff happens, we again get the pid print it and nothing more there. The parent doesn’t wait for anything. Also there’s no synchronization in the program so basically the order can be flipped too, that’s where the wait comes in, to synchronize. I accidentally also used waitpid last time in the homework so that’s why I am aware of the synchronization as of this homework .
+
+Assignment 2
+
+The error message I hoped to see and actually got Child 1 process id: 34102
+Parent process id: 34101
+Child 2 process id: 34103
+Waited for child 34103, status 0
+Waited for child -1, status 1386577776
+
+Basically my code is executing in this order. The children are created and then then they do their business and the parent’s turn comes in. The parent is where the interesting things are happening, the code waits for one of its children to finish and returns the staff it has to return and the wait is finished and then it goes into the next wait statement waitpid (I intentionally wrote them in this order to see the error at some point) this second wait statement waits for a specific child to finish, now most of the times the first child is executed first and the waitpid is not making any issues for us but once in a while the second might exit first and when the turn comes for the waitpid to wait that child is already finished so it complaints. If I placed the waits in the opposite order so first waitpid waits for a child to finish we’ll never see an issue because then wait would wait for a child to finish the only child would be the one waitpid didn’t wait for and everyone would be happy. 
+
+This flowed design is my intention.
+
+Assignment 3
+
+The program works this way. Basically the close function prints something and the atexit(close) is telling the program that before closing, may it be exit(0) or return 0 it doesn’t matter. So basically the close() function is ran right before finishing the program and prints. The exit placement doesn’t matter actually unless it is placed before the atexit because at any time the close will be called but if the exit is called before atexit then the atexit didn’t register the function to work. At exit is a very important and useful function that takes only functions that take no argument and return nothing (I made the mistake of calling an int ). It is useful in knowing the amount of time the program ran and can be helpful in cleaning everything before exiting the process.
+
+Assignment 4
+This is the result of my task4.c running 
+Child1 exit code: 0
+Child1 exited normally
+Child2 exit code: 1
+Child2 exited with an error
+Basically the code ran and the child that returned 0 was a successful run but the child with exit(1) returned something that means an error, it is generally not OK to return something other than 0 if the program executed as expected, our program did so but I wrote a code that returns 1  as its status which means it is marked as a faulty result. When I tried it with exit(1) and exit(2) I got 256 and 512, because the exit code is stored in the upper byte of the integer. WEXITSTATUS pulls the actual code back out, which is where the 0 and 1 in the output come from I learnt about it using the internet (by internet I of course mean AI ).
+
+Assignment 5
+This was something we also did in the classroom so basically I remember how we do it and simply repeated it here in my homework.
+I wrote a basic program that forks and prints something from a child and the child also had a while(1) to not stop. The parent also printed something but it finished whenever it was done forking and printing, so it didn’t wait for the child, when I ran the program the first time it simply created 1 process and that was the child process that never termianted (basically parent quickly finished so it didn’t even show in htop, but it was created of course). Then I modified and the submission includes the final code where I put a wait(NULL) this wait is for the parent to wait for the child to finish and when I ran this code the terminal was comepletely different it didn’t let me type anything simply because there was an active process that didn’t return anything yet. I killed the processes by hand to stop them and when I killed the child the parent automatically finished too. This prevents the zombie processes by simpy making the parent sit idle as long as the child takes to fully finish and return something, otherwise the child finds another parent and executes as it did before.
+
+Final notes.
+I actually wrote as if I was explaining my codes to my friend so sorry if it is not formal, I think you’d be bored to read explanation to the same thing over 60 times also most of the codes were repeated and only one or two things changes which I tried to explain as much as my code went. Thank you for your time and effort.
+Here's the github link to my submission files. 
+
+
