@@ -1,0 +1,13 @@
+With #pragma pack(1) the struct shrank from 16 to 13 bytes, because the compiler removed the 3 bytes of padding and placed the fields right after each other (b is now 1 byte after a instead of 4). This saves memory, but the fields are no longer guaranteed to be aligned, which can make reading them slower becaus eof this packing is used for specific cases mostly
+
+The size of variables struct: 16
+a: 0x7ffd341a9e20
+b: 0x7ffd341a9e24
+c: 0x7ffd341a9e28
+
+
+After pragma pack.
+The size of variables struct: 13
+a: 0x7ffd341a9e13
+b: 0x7ffd341a9e14
+c: 0x7ffd341a9e18

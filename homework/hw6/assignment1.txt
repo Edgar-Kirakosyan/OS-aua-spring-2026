@@ -1,0 +1,3 @@
+The variables were stored not in the order they were initially written in the program, but rather in a convienint way that the storage wouldn't need extra padding and hence not waste any memory space for the padding.
+
+Also each address starts at an address that is amultiple of its size. The total memory used is 15 bytes which is reasonable condifering the added space needed for these variables is 1+2+4+8 = 15 so no wasted space for alignment thanks to the reordering of the variables.

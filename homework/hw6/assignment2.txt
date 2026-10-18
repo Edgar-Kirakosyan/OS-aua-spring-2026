@@ -1,0 +1,12 @@
+Changing the order didn’t change anything here: both structs are 16 bytes, even though the fields only add up to 13. In the original, 3 bytes of padding go after the char so the int starts at a multiple of 4. In the rearranged one, those 3 bytes just move to the end so the struct’s size stays a multiple of 8. Rearranging can save space in other cases (for example, char, double, int would take 24 bytes), but this field order was already as compact as it gets.
+
+edgark@ubuntu-aua-2026:~/workshop/homework/hw6$ ./assignment2 
+The size of variables struct: 16
+a: 0x7fffd22d3900
+b: 0x7fffd22d3904
+c: 0x7fffd22d3908
+Rearranged struct.
+The size of variables struct: 16
+c: 0x7fffd22d3910
+b: 0x7fffd22d3918
+a: 0x7fffd22d391c
